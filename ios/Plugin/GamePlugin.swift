@@ -1,10 +1,6 @@
 import Foundation
 import Capacitor
 
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitorjs.com/docs/plugins/ios
- */
 @objc(GamePlugin)
 public class GamePlugin: CAPPlugin {
     private let implementation = Game()
@@ -14,5 +10,14 @@ public class GamePlugin: CAPPlugin {
         call.resolve([
             "value": implementation.echo(value)
         ])
+    }
+
+    @objc func triggerGameEvent(_ call: CAPPluginCall) {
+        let gameId = call.getString("gameId") ?? "defaultGameId"
+        
+        // Emit the event to JavaScript
+        notifyListeners("gameEvent", data: ["gameId": gameId])
+        
+        call.success()
     }
 }

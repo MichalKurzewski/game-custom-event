@@ -17,6 +17,17 @@ public class GamePlugin extends Plugin {
 
         JSObject ret = new JSObject();
         ret.put("value", implementation.echo(value));
+        
+        // Fire the custom gameEvent after echoing the value
+        fireGameEvent(value);
+
         call.resolve(ret);
+    }
+
+    // Example method to fire the custom event
+    private void fireGameEvent(String gameId) {
+        JSObject data = new JSObject();
+        data.put("gameId", gameId);
+        notifyListeners("gameEvent", data);
     }
 }
