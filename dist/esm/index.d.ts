@@ -3,10 +3,16 @@ declare module 'game-custom-event' {
     gameId: string;
   }
 
+  export type RemoveFunction = () => void;
+
+  export interface ListenerHandle {
+    remove: RemoveFunction;
+  }
+
   export class Game {
     static addListener(
       eventName: string,
       callback: (info: CustomEventData) => void,
-    ): void;
+    ): ListenerHandle;
   }
 }
