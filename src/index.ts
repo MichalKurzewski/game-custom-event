@@ -5,4 +5,5 @@ import type { GamePlugin } from './definitions';
 const Game = registerPlugin<GamePlugin>('Game');
 
 export * from './definitions';
+export * from './web';
 export { Game };

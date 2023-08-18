@@ -1,10 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var core = require('@capacitor/core');
-
-class GameWeb extends core.WebPlugin {
+import { WebPlugin } from '@capacitor/core';
+export class GameWeb extends WebPlugin {
     constructor() {
         super({
             name: 'Game',
@@ -39,9 +34,4 @@ class GameWeb extends core.WebPlugin {
         listener.remove();
     }
 }
-
-const Game = core.registerPlugin('Game');
-
-exports.Game = Game;
-exports.GameWeb = GameWeb;
-//# sourceMappingURL=plugin.cjs.js.map
+//# sourceMappingURL=web.js.map
