@@ -1,4 +1,6 @@
 import type { GamePlugin } from './definitions';
+import { GameWeb } from './web';
+export { GameWeb };
 declare const Game: GamePlugin;
 export * from './definitions';
 export * from './web';
